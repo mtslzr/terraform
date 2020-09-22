@@ -32,4 +32,8 @@ resource "aws_dynamodb_table" "dynamo" {
       type = attribute.value.type
     }
   }
+
+  tags = {
+    project = var.project_name
+  }
 }
