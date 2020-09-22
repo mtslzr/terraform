@@ -1,3 +1,8 @@
+variable "build_dir" {
+  type        = string
+  description = "Location of build folder for archive."
+}
+
 variable "description" {
   type        = string
   description = "Description of Lambda function."

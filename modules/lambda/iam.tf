@@ -1,10 +1,10 @@
 data "aws_iam_policy_document" "trust" {
   statement {
-    effect  = "Allow"
     actions = ["sts:AssumeRole"]
+
     principals {
+      type        = "Service"
       identifiers = ["lambda.amazonaws.com"]
-      type        = "AWS"
     }
   }
 }
@@ -31,7 +31,7 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name        = var.project_name
+  name        = "${var.project_name}-log"
   description = "Allow ${var.project_name} lambda to access CloudWatch."
   policy      = data.aws_iam_policy_document.lambda_perms.json
 }

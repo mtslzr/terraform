@@ -1,3 +1,9 @@
+data "archive_file" "lambda_zip" {
+  type        = "zip"
+  output_path = var.filename
+  source_dir  = var.build_dir
+}
+
 resource "aws_lambda_function" "lambda" {
   description   = var.description
   filename      = var.filename
