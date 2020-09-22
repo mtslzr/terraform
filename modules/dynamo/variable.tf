@@ -8,27 +8,27 @@ variable "attributes" {
 }
 
 variable "hash_key" {
-  type        = "string"
+  type        = string
   description = "Hash key for DynamoDB table."
 }
 
 variable "hash_key_type" {
-  type        = "string"
+  type        = string
   description = "Hash key type for DynamoDB table."
 }
 
 variable "project_name" {
-  type        = "string"
+  type        = string
   description = "Base name for the database project."
 }
 
 variable "range_key" {
-  type        = "string"
+  type        = string
   description = "Hash key for DynamoDB table."
 }
 
 variable "range_key_type" {
-  type        = "string"
+  type        = string
   description = "Hash key type for DynamoDB table."
 }
 

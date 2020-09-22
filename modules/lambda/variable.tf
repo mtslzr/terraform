@@ -1,30 +1,30 @@
 variable "description" {
-  type        = "string"
+  type        = string
   description = "Description of Lambda function."
 }
 
 variable "filename" {
-  type        = "string"
+  type        = string
   description = "Location of zip file to upload to Lambda."
 }
 
 variable "handler" {
-  type        = "string"
+  type        = string
   description = "Package and function for Lambda handler."
 }
 
 variable "policy_arn" {
-  type        = "string"
+  type        = string
   description = "Policy ARN of permissions for Lambda."
   default     = ""
 }
 
 variable "project_name" {
-  type        = "string"
+  type        = string
   description = "Base name for the Lambda's project."
 }
 
 variable "runtime" {
-  type        = "string"
+  type        = string
   description = "Selected runtime for Lambda."
 }
