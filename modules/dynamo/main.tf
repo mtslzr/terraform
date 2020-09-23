@@ -1,24 +1,30 @@
 locals {
-  attributes = concat(
+  hash_attrs = concat(
   [
     {
       name = var.hash_key
       type = var.hash_key_type
-    },
-    {
-      name = var.range_key
-      type = var.range_key_type
     }
   ],
   var.attributes
   )
+
+  attributes = var.range_key == "" ? local.hash_attrs : concat(
+  local.hash_attrs,
+  [
+    {
+      name = var.range_key
+      type = var.range_key_type
+    }
+  ]
+  )
 }
 
 resource "aws_dynamodb_table" "dynamo" {
-  name           = "${var.project_name}-${var.table_name}"
-  hash_key       = var.hash_key
-  range_key      = var.range_key
-  read_capacity  = var.read_capacity
+  name = "${var.project_name}-${var.table_name}"
+  hash_key = var.hash_key
+  range_key = var.range_key
+  read_capacity = var.read_capacity
   write_capacity = var.write_capacity
 
   server_side_encryption {
@@ -27,6 +33,7 @@ resource "aws_dynamodb_table" "dynamo" {
 
   dynamic "attribute" {
     for_each = local.attributes
+
     content {
       name = attribute.value.name
       type = attribute.value.type

@@ -25,11 +25,13 @@ variable "project_name" {
 variable "range_key" {
   type        = string
   description = "Hash key for DynamoDB table."
+  default     = ""
 }
 
 variable "range_key_type" {
   type        = string
   description = "Hash key type for DynamoDB table."
+  default     = "S"
 }
 
 variable "read_capacity" {
