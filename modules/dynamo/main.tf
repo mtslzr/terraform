@@ -15,7 +15,7 @@ locals {
 }
 
 resource "aws_dynamodb_table" "dynamo" {
-  name           = var.project_name
+  name           = "${var.project_name}-${var.table_name}"
   hash_key       = var.hash_key
   range_key      = var.range_key
   read_capacity  = var.read_capacity

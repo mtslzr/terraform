@@ -38,6 +38,11 @@ variable "read_capacity" {
   default     = 5
 }
 
+variable "table_name" {
+  type        = string
+  description = "Table name for DynamoDB."
+}
+
 variable "write_capacity" {
   type        = number
   description = "Write Capacity for DynamoDB table."
