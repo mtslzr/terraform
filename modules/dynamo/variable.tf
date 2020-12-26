@@ -1,5 +1,5 @@
 variable "attributes" {
-  type        = list(object({
+  type = list(object({
     name = string
     type = string
   }))
@@ -38,6 +38,18 @@ variable "read_capacity" {
   type        = number
   description = "Read Capacity for DynamoDB table."
   default     = 5
+}
+
+variable "stream" {
+  type        = bool
+  description = "Stream Enabled for DynamoDB table."
+  default     = false
+}
+
+variable "stream_view" {
+  type        = string
+  description = "Stream View Type for DynamoDB table."
+  default     = "NEW_IMAGE"
 }
 
 variable "table_name" {
